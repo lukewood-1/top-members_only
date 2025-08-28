@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/UX.js" defer></script>
+  <title>Sign up</title>
+</head>
+<body>
+  <%- include('guestHeader') %>
+  <main>
+    <div class="container">
+      <% if(locals.errors) { %>
+        <h3>We need you to correct some things in your form</h3>
+        <%- include('errors') %>
+      <% } %>
+
+      <form class="form-signup" action="/access/sign-up" method="post">
+        <h1>Sign up</h1>
+        <div>
+          <label for="firstName">first name: </label>
+          <input type="text" id="firstName" name="firstName" placeholder="your first name">
+        </div>
+
+        <div>
+          <label for="lastName">last name: </label>
+          <input type="text" id="lastName" name="lastName" placeholder="your last name">
+        </div>
+
+        <div>
+          <label for="nickname">handle: </label>
+          <input type="text" id="nickname" name="nickname" placeholder="a name you would like to be known as" />
+        </div>
+
+        <div>
+          <label for="username">username: </label>
+          <input id="username" type="text" name="username" placeholder="enter username" />
+        </div>
+
+        <div>
+          <label for="password">password: </label>
+          <input type="text" id="password" name="password" placeholder="enter password">
+        </div>
+
+        <div>
+          <label for="confirm-password">confirm password: </label>
+          <input type="text" id="confirm-password" name="confirm-password" placeholder="enter the same as above">
+        </div>
+
+        <button class="link-btn" type="submit">sign up</button>
+      </form>
+
+      <a class="link-btn" href="/">Back to home</a>
+    </div>
+  </main>
+  <%- include('footer') %>
+</body>
+</html>

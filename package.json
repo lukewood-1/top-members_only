@@ -1,0 +1,34 @@
+{
+  "name": "top-members_only",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node --watch --env-file=.env app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukewood-1/top-members_only.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type":"commonjs",
+  "bugs": {
+    "url": "https://github.com/lukewood-1/top-members_only/issues"
+  },
+  "homepage": "https://github.com/lukewood-1/top-members_only#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-flash": "^0.1.1",
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "express-validator": "^7.2.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.16.3"
+  }
+}

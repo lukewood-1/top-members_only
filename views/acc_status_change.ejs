@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/UX.js" defer></script>
+  <title>Dashboard</title>
+</head>
+<body>
+  <%- include('loggedHeader') %>
+
+  <main>
+    <h3>You're currently <%= !user.is_member ? 'not' : '' %> a <%= acc_status %>. To <%= !user.is_member ? 'become a member' : 'revoke your membership'%>, type down(don't copy and paste) the captcha below:</h3>
+
+    <form action="/access/account/is_<%= acc_status %>" method="post">
+      <input readonly type="text" name="passcode" value="<%= passcode %>" />
+
+      <input hidden type="text" name="id" value="<%= user.id %>" />
+
+      <label for="user_input">type the passcode above: </label>
+      <input type="text" id="user_input" name="confirm_passcode" autocomplete="off" />
+
+      <button type="submit">Apply</button>
+    </form>
+  </main>
+
+  <%- include('footer') %>
+</body>
+</html>

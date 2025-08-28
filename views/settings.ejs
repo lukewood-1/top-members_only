@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Account</title>
+  <script src="/UX.js" defer></script>
+</head>
+<body>
+  <%- include('loggedHeader') %>
+
+  <main>
+    <div class="settings-container">
+      <h1>Settings</h1>
+
+      <%- include('errors') %>
+      <div class="settings">
+        <form class="form_acc_details" action="/access/account/update" method="post">
+          <h3>Account details</h3>
+
+          <input hidden type="text" name='id' value="<%= user.id %>" />
+
+          <div>
+            <label for="firstName">First name: </label>
+            <input type="text" id="firstName" name="firstName" value="<%= user.first_name %>" placeholder="<%= user.first_name %>" />
+          </div>
+
+          <div>
+            <label for="lastName">Last name: </label>
+            <input type="text" id="lastName" name="lastName" value="<%= user.last_name %>" placeholder="<%= user.last_name %>" />
+          </div>
+
+          <div>
+            <label for="handle">Handle: </label>
+            <input type="text" id="handle" name="handle" value="<%= user.handle.slice(1) %>" placeholder="<%= user.handle ? user.handle.slice(1) : `You didn't register one yet` %>" />
+          </div>
+
+          <div>
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username" value="<%= user.username %>" placeholder="<%= user.username %>" />
+          </div>
+
+          <div>
+            <label for="password">New password: </label>
+            <input type="text" id="password" name="password" />
+          </div>
+
+          <div>
+            <label for="confirmPassword">Confirm new password: </label>
+            <input type="text" id="confirmPassword" name="confirm_password" placeholder="same as new password" />
+          </div>
+
+          <button type="button" popovertarget="acc_details_dialog" popovertargetaction="show">Apply changes</button>
+
+          <div id="acc_details_dialog" popover>
+            <h3>Are you sure you wanna update your account details?</h3>
+
+            <div>
+              <button type="submit">Yes</button>
+              <button type="button" popovertarget="acc_details_dialog" popovertargetaction="hide">No</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="div_acc_status">
+          <h3>Upgrade account status</h3>
+
+          <div class="acc_status_wrapper">
+            <a class="acc_status_btn" href="/access/account/become-member"><button><%= !user.is_member ? 'Become a member' : 'Revoke membership' %></button></a>
+
+            <% if(user.is_member) {%>
+              <a class="acc_status_btn" href="/access/account/become-admin"><button><%= !user.is_admin ? 'Become an admin' : 'Revoke adminship' %></button></a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+
+      <a class="link-btn" href="/">back</a>
+    </div>
+  </main>
+
+  <%- include('footer') %>
+</body>
+</html>

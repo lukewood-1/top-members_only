@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Homepage</title>
+  <script src="/UX.js" defer></script>
+</head>
+<body>
+  <% if(user !== undefined) { %>
+    <%- include('loggedHeader') %>
+  <% } else { %>
+    <%- include('guestHeader') %>
+  <% } %>
+  <main>
+    <% if(user !== undefined) { %>
+      <%- include('navbar') %>
+    <% } %>
+  <div class="container">
+    <%- include('feed') %>
+  </div>
+  </main>
+  <%- include('footer') %>
+</body>
+</html>

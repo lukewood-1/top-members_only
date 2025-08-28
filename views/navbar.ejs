@@ -1,0 +1,67 @@
+<nav class="dash-nav">
+  <ul class="btn-list">
+    <li>
+      <button class="search-btn">Search posts</button>
+    </li>
+    <li>
+      <button class="create-btn">Create post</button>
+    </li>
+  </ul>
+  <ul class="search-section hidden">
+    <li>
+      <form action="/feed/search/author" method="post">
+        <label for="search_author">By author: </label>
+        <input type="text" id="search_author" name="author_id" required />
+        
+        <button type="submit">search</button>
+      </form>
+    </li>
+    <li>
+      <form action="/feed/search/title" method="post">
+        <label for="search_title">By title: </label>
+        <input type="text" id="search_title" name="title" required />
+        
+        <button type="submit">search</button>
+      </form>
+    </li>
+    <li>
+      <form class="date-form" action="/feed/search/date" method="post">
+        <div>
+          <label for="search_date">By date: </label>
+          <input type="date" id="search_date" name="date" required />
+        </div>
+        
+        <div>
+          <label for="precision">precision: </label>
+          <select name="precision" id="precision">
+            <option value="equal" selected>this day</option>
+            <option value="earlier">earlier than</option>
+            <option value="later">later than</option>
+          </select>
+        </div>
+
+        <button type="submit">search</button>
+      </form>
+    </li>
+  </ul>
+  <div class="create-post-section hidden">
+    <form class="form-create-post" action="/feed/create" method="post">
+      <div>
+        <label for="post-title">Title: </label>
+        <input type="text" id="post-title" name="title" placeholder="Something recognizable" />
+        <span class="title-char-counter">30</span>/30
+      </div>
+
+      <div>
+        <label for="post-content">Post something: </label>
+<span>
+
+        <textarea maxlength="255" name="content" id="post-content" placeholder="It can be anything, really"></textarea>
+        <p class="char-count-p">remaining: <span class="char-count">255</span>/255</p>
+</span>
+      </div>
+
+      <button type="submit">create post</button>
+    </form>
+  </div>
+</nav>

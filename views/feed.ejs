@@ -1,0 +1,41 @@
+<div class="feed">
+  <h2>Post Feed</h2>
+  <% if(locals.feed) {%>
+    <% if(feed.length > 0) {%>
+      <ul class="posts-window">
+        <% feed.forEach(p => { %>
+          <li class="post">
+            <div class="post-wrapper">
+              <div class="post-author">
+                <% if(user !== undefined) { %>
+                  <% if(user.is_member) {%>
+                    <div>
+                      <h4><%= p.first_name %> <%= p.last_name %>(<%= p.handle %>)</h4>
+                      <h5><%= p.timestamp %></h5>
+                    </div>
+                  <% } else { %>
+                    <h4>Annonymous</h4>
+                  <% } %>
+                  <% if(user.is_admin) {%>
+                    <form action="/feed/delete" method="post">
+                      <input type="text" name="id" value='<%= p.id %>' hidden />
+                      <button type="submit">delete</button>
+                    </form>
+                  <% } %>
+                <% } else { %>
+                  <h4 class="unlogged-msg">> Sign in to see the post's author, and the post date <</h4>
+                <% } %>
+              </div>
+              <h3 class="post-title"><%= p.title %></h3>
+              <p class="post-content"><%= p.content %></p>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No posts yet. Create one yourself!</p> 
+    <% } %>
+  <% } else {%>
+    <p>No posts yet. Create one yourself!</p> 
+  <% } %>
+</div>

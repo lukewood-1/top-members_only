@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/UX.js" defer></script>
+  <title>Log in</title>
+</head>
+<body>
+  <%- include('guestHeader') %>
+  <main>
+    <h1>Log in</h1>
+
+    <form class="form_log-in" action="/access/log-in" method="post">
+      <div>
+        <label for="username">username: </label>
+        <input type="text" id="username" name="username" placeholder="your username" value="lukewood1" />
+      </div>
+
+      <div>
+        <label for="password">password: </label>
+        <input type="password" id="password" name="password" placeholder="your password" value="Qwerty1" />
+      </div>
+
+      <button class="link-btn" type="submit">log in</button>
+    </form>
+  </main>
+  <%- include('footer') %>
+</body>
+</html>

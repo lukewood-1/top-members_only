@@ -1,0 +1,21 @@
+<header>
+  <ul>
+    <li> <a class="link-btn" href="/">Home logo</a> </li>
+    <li>
+      <div class="display-username">
+        <% if(user.handle) {%>
+          <span class="handle"><%= user.first_name %></span>
+          (<span class="first-name"><%= user.handle %></span>)
+        <% } else {%>
+          <span class="first-name"><%= user.first_name %></span>
+        <% } %>
+        <a class="link-btn" href="/access/log-out">log out</a>
+      </div>
+    </li>
+    <li>
+      <div class="unsigned right-side">
+        <a class="link-btn" href="/settings">settings</a>
+      </div>
+    </li>
+  </ul>
+</header>

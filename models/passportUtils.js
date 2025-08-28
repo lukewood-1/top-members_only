@@ -8,7 +8,7 @@ const database = require("./db"),
 
 const PgStore = pgSession(session);
 const store = new PgStore({
-  conString: 'postgresql://luke:I.l.d.t.1.@localhost:5432/auth',
+  conString: `${process.env.connectionString}${process.env.dbname}`,
   tableName: 'session',
   createTableIfMissing: true
 });
